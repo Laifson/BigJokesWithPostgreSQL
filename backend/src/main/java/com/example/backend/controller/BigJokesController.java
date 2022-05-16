@@ -1,10 +1,10 @@
-package controller;
+package com.example.backend.controller;
 
 
-import model.BigJoke;
+import com.example.backend.service.BigJokesService;
+import com.example.backend.model.BigJoke;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.BigJokesService;
 
 import java.util.List;
 

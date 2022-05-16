@@ -1,14 +1,13 @@
-package controller;
+package com.example.backend.controller;
 
-import api.service.BigJokesApiService;
-import model.BigJoke;
+import com.example.backend.api.service.BigJokesApiService;
+import com.example.backend.model.BigJoke;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/search")
@@ -21,9 +20,9 @@ public class JokesApiController {
         this.bigJokesApiService = bigJokesApiService;
     }
 
-    @GetMapping
-    public List<BigJoke> getJoke(@RequestParam String params) {
-        return bigJokesApiService.filterEntries(params);
+    @GetMapping(value = {"", "{category}"})
+    public List<BigJoke> getJoke(@PathVariable(required = false) String category, @RequestParam Optional<String> params) {
+        return bigJokesApiService.filterEntries(Objects.requireNonNullElse(category, "any"), params);
     }
 
 }
