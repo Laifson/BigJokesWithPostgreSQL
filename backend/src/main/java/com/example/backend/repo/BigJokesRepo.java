@@ -1,6 +1,6 @@
-package repo;
+package com.example.backend.repo;
 
-import model.BigJoke;
+import com.example.backend.model.BigJoke;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

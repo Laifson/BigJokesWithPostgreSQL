@@ -1,20 +1,20 @@
-package model;
+package com.example.backend.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.example.backend.service.JsonConverter;
+import lombok.*;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Data
 @Entity
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="jokesTable")
+@Table(name="jokes_table")
 public class BigJoke {
 
     @Id
@@ -23,6 +23,12 @@ public class BigJoke {
     private Boolean error;
     private String category;
     private String type;
+    private String joke;
+    private String setup;
+    private String delivery;
     private String lang;
+
+    @Convert(converter = JsonConverter.class)
+    private Flags flags;
 
 }

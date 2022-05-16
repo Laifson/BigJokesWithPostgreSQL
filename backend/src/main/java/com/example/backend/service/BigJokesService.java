@@ -1,9 +1,9 @@
-package service;
+package com.example.backend.service;
 
-import model.BigJoke;
+import com.example.backend.model.BigJoke;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repo.BigJokesRepo;
+import com.example.backend.repo.BigJokesRepo;
 
 import java.util.List;
 

@@ -1,8 +1,11 @@
-package model;
+package com.example.backend.model;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Flags {
 
     private boolean nsfw;
